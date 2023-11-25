@@ -47,32 +47,38 @@
 
 import { useEffect, useState } from "react";
 import MeetupListing from "../components/MeetUps/MeetUpList";
+import { getDocs, collection } from "firebase/firestore";
+import FirebaseAuth from "../Store/firebaseAuth";
 
 const AllMeetupsing = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedMeetups, setLoadedMeetups] = useState();
-  useEffect(()=>{
+  useEffect(async () => {
     setIsLoading(true);
-    fetch(
-      "https://crash-react-94155-default-rtdb.firebaseio.com/meetups.json"
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        const meetupDummy=[];
+    // fetch(
+    //   "https://crash-react-94155-default-rtdb.firebaseio.com/meetups.json"
+    // )
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     const meetupDummy = [];
 
-        for(const key in data){
-          const meeting={
-            id:key,
-            ...data[key]
-          }
-          meetupDummy.push(meeting)
-        }
-        setIsLoading(false);
-        setLoadedMeetups(meetupDummy);
-      });
-  },[])
+    //     for (const key in data) {
+    //       const meeting = {
+    //         id: key,
+    //         ...data[key]
+    //       }
+    //       meetupDummy.push(meeting)
+    //     }
+    //     setIsLoading(false);
+    //     setLoadedMeetups(meetupDummy);
+    //   });
+    const citiesCol = collection(FirebaseAuth(), "meetups");
+    const citySnapshot = await getDocs(citiesCol);
+    citySnapshot.docs.map(doc => console.log(doc.data()));
+
+  }, [])
 
   if (isLoading) {
     return (
@@ -85,7 +91,7 @@ const AllMeetupsing = () => {
   return (
     <div>
       <h1>All Meetups</h1>
-        <MeetupListing meetups={loadedMeetups} />
+      <MeetupListing meetups={loadedMeetups} />
     </div>
   );
 };
