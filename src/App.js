@@ -3,19 +3,19 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Layout from './components/Layout/layout';
 // import MainNavigation from './components/Layout/mainNavigation';
-import AllMeetUps from './pages/AllMeetUps';
+import AllArticals from './pages/AllArticals';
 import Favourites from './pages/Favourites';
-import NewMeetUps from './pages/NewMeetUps';
+import NewArticals from './pages/NewArticals';
 
 function App() {
   return (
     <Layout>
   <Routes>
     <Route path='/' exact
-      element={<AllMeetUps/>}
+      element={<AllArticals/>}
     />
-    <Route path='/NewMeetUps'
-      element={<NewMeetUps/>}
+    <Route path='/NewArticals'
+      element={<NewArticals/>}
     />
     <Route path='/Favourites'
       element={<Favourites/>}

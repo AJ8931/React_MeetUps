@@ -20,13 +20,13 @@ const MainNavigation = () => {
     return (
         <header className={nav?classes.header2:classes.header}>
             <div className={classes.logo} >
-                React MeetUps
+                Articals
             </div>
             <nav>
                 <ul className={classes.header.ul} >
                     <li className={classes.header.li} >
                         <Link to='/' >
-                            All Meetups
+                            All Articals
                         </Link>
                     </li>
                     <li className={classes.header.li} >
@@ -36,8 +36,8 @@ const MainNavigation = () => {
                         </Link>
                     </li>
                     <li className={classes.header.li} >
-                        <Link to='/NewMeetups' >
-                            New MeetUps
+                        <Link to='/NewArticals' >
+                            New Articals
                         </Link>
                     </li>
                 </ul>

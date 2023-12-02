@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MeetUpList from "../components/MeetUps/MeetUpList";
 
-const AllMeetUps = () => {
+const AllArticals = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [loadedMeetUps, setLoadedMeetUps] = useState([]);
 
@@ -36,10 +36,10 @@ const AllMeetUps = () => {
 
     return (
         <div>
-            <h1>All Meetups</h1>
+            <h1>Articals</h1>
             <MeetUpList meetups={loadedMeetUps} />
         </div>
     );
 };
 
-export default AllMeetUps;
+export default AllArticals;

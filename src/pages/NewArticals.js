@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom"
 import NewMeetUpForm from "../components/MeetUps/newMeetUpForm";
 
-const NewMeetUps = () => {
+const NewArticals = () => {
     const history = useNavigate();
     const AddMeetUpHandler = (meetUpData) => {
         console.log(meetUpData);
@@ -22,9 +22,9 @@ const NewMeetUps = () => {
     }
 
     return (<section>
-        <h1>Add New MeetUps</h1>
+        <h1>Add New Articals</h1>
         <NewMeetUpForm onaddMeetUp={AddMeetUpHandler} />
     </section>
     );
 }
-export default NewMeetUps;
+export default NewArticals;
